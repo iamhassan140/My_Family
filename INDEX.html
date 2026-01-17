@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خاندان کے لیے دعائیں</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 2em;
+            animation: floatUp 15s infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #764ba2;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Family Members Grid */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .family-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .family-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .family-card:hover::before {
+            left: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .family-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .family-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .family-title {
+            font-size: 2em;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .dua-text {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 2;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .arabic-dua {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            line-height: 2.2;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Special Section */
+        .special-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .special-title {
+            font-size: 2.5em;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .special-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #764ba2, transparent);
+        }
+
+        /* Ameen Button */
+        .ameen-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.8em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px auto;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 20px 60px rgba(245, 87, 108, 0.7);
+            }
+        }
+
+        .ameen-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(245, 87, 108, 0.6);
+        }
+
+        .ameen-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer Message */
+        .footer-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            margin-top: 50px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .footer-text {
+            font-size: 1.6em;
+            color: #764ba2;
+            line-height: 2;
+        }
+
+        /* Memory Timeline */
+        .timeline-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 20px;
+            border: 2px solid #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-marker {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-memory-title {
+            font-size: 1.6em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .timeline-memory-text {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Gratitude Cards */
+        .gratitude-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .gratitude-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gratitude-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .gratitude-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(252, 182, 159, 0.5);
+        }
+
+        .gratitude-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .gratitude-title {
+            font-size: 1.5em;
+            color: #d63031;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .gratitude-text {
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Wishes Section */
+        .wishes-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 147, 251, 0.2));
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .wishes-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .wish-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 5px solid #764ba2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .wish-box:hover {
+            transform: translateX(15px);
+            border-left-width: 8px;
+            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.3);
+        }
+
+        .wish-person {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .wish-content {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.9;
+        }
+
+        /* Quote Cards */
+        .quotes-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .quote-card {
+            background: linear-gradient(135deg, #e778f4 0%, #cf6af19f 100%);
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 6em;
+            color: rgba(0, 0, 0, 0.3);
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-size: 1.4em;
+            color: #ffffff;
+            line-height: 2;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-size: 1.2em;
+            color: #000000;
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+ .stat-box {
+    transition: all 0.3s ease-in-out;
+    border: 2px solid purple;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px; /* Corners ko thora round rakha hai */
+}
+
+.stat-box:hover {
+     transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(7, 43, 203, 0.4);
+    
+    /* Soft Glassy Background */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    
+    /* Soft shadow jo card ko thora utha hua dikhaye */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    
+    /* Card thora sa ooper move karega (optional, cute lagta hai) */
+    transform: translateY(-5px);
+}
+
+/* Icon ki wiggle animation waisi hi rahegi */
+.stat-box:hover .stat-icon {
+    animation: wiggle 0.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+        .stat-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.3em;
+            color: white;
+        }
+
+        /* Promise Section */
+      .promise-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .promise-container {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .promise-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .promise-text {
+            font-size: 1.6em;
+            color: #2d3436;
+            line-height: 2.2;
+            font-weight: 500;
+        }
+
+        .promise-signature {
+            font-size: 1.8em;
+            color: #d63031;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .header {
+                padding: 40px 20px;
+                border-radius: 20px;
+                margin-bottom: 30px;
+            }
+
+            .main-title {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+
+            .subtitle {
+                font-size: 1.3em;
+            }
+
+            .family-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 25px 0;
+            }
+
+            .family-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .family-icon {
+                font-size: 3em;
+            }
+
+            .family-title {
+                font-size: 1.6em;
+            }
+
+            .dua-text {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+
+            .arabic-dua {
+                padding: 20px 15px;
+                font-size: 1.3em;
+                line-height: 2;
+                border-radius: 12px;
+            }
+
+            .special-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+                margin: 30px 0;
+            }
+
+            .special-title {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+
+            .special-title::after {
+                width: 100px;
+            }
+
+            .ameen-btn {
+                padding: 15px 40px;
+                font-size: 1.4em;
+                border-radius: 40px;
+            }
+
+            .footer-message {
+                padding: 30px 15px;
+                border-radius: 15px;
+            }
+
+            .footer-text {
+                font-size: 1.3em;
+            }
+
+            .floating-heart {
+                font-size: 1.5em;
+            }
+
+            /* Timeline Mobile */
+            .timeline-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px;
+                padding: 20px 15px;
+            }
+
+            .timeline-marker {
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.4em;
+            }
+
+            .timeline-memory-title {
+                font-size: 1.3em;
+            }
+
+            .timeline-memory-text {
+                font-size: 1em;
+            }
+
+            /* Gratitude Mobile */
+            .gratitude-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .gratitude-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gratitude-card {
+                padding: 25px 20px;
+            }
+
+            .gratitude-icon {
+                font-size: 2.5em;
+            }
+
+            .gratitude-title {
+                font-size: 1.3em;
+            }
+
+            .gratitude-text {
+                font-size: 1.1em;
+            }
+
+            /* Wishes Mobile */
+            .wishes-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .wishes-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .wish-box {
+                padding: 25px 20px;
+            }
+
+            .wish-person {
+                font-size: 1.5em;
+            }
+
+            .wish-content {
+                font-size: 1.1em;
+            }
+
+            /* Quotes Mobile */
+            .quotes-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .quote-carousel {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .quote-card {
+                padding: 30px 20px;
+            }
+
+            .quote-text {
+                font-size: 1.2em;
+            }
+
+            .quote-author {
+                font-size: 1.1em;
+            }
+
+            /* Stats Mobile */
+            .stats-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-box {
+                padding: 25px 15px;
+            }
+
+            .stat-icon {
+                font-size: 2.5em;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .stat-label {
+                font-size: 1.1em;
+            }
+
+            /* Promise Mobile */
+            .promise-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .promise-box {
+                padding: 30px 20px;
+            }
+
+            .promise-text {
+                font-size: 1.3em;
+                line-height: 2;
+            }
+
+            .promise-signature {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header {
+                padding: 30px 15px;
+            }
+
+            .main-title {
+                font-size: 1.7em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .family-card {
+                padding: 25px 15px;
+            }
+
+            .family-icon {
+                font-size: 2.5em;
+            }
+
+            .family-title {
+                font-size: 1.4em;
+            }
+
+            .dua-text {
+                font-size: 1em;
+            }
+
+            .arabic-dua {
+                font-size: 1.2em;
+                padding: 18px 12px;
+            }
+
+            .special-title {
+                font-size: 1.5em;
+            }
+
+            .ameen-btn {
+                padding: 12px 35px;
+                font-size: 1.2em;
+            }
+
+            .footer-text {
+                font-size: 1.1em;
+            }
+
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+                padding: 18px 12px;
+            }
+
+            .timeline-marker {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promise-text {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+    <head> 
+  <body>
+    <body>
+    <div class="background-animation" id="bgAnimation"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">💝 خاندان کے لیے دعائیں 💝</h1>
+            <p class="subtitle">اللہ تعالیٰ سے دعا ہے کہ میرے پیارے خاندان کو ہر خوشی، صحت، اور برکت سے نوازے</p>
+        </div>
+
+        <div class="special-section">
+            <h2 class="special-title">👨‍👩‍👦 والدین کے لیے خصوصی دعا</h2>
+            <div class="arabic-dua">
+                رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا
+            </div>
+            <p class="dua-text">
+                "اے میرے رب! ان دونوں پر رحم فرما جیسے انہوں نے بچپن میں مجھے پالا"
+            </p>
+            <p class="dua-text">
+                اللہ پاک میری ماں کو لمبی، صحت مند اور خوشحال زندگی عطا فرمائے۔ ان کی ہر دعا قبول فرمائے اور میرے مرحوم والد کے درجات بلند فرمائے، انہیں جنت الفردوس کی تمام نعمتیں نصیب فرمائے۔ آمین
+            </p>
+        </div>
+
+        <div class="family-grid">
+            <div class="family-card" style="animation-delay: 0.1s;">
+                <div class="family-icon">👩</div>
+                <h3 class="family-title">میری پیاری امی</h3>
+                <div class="arabic-dua">اللّٰهُمَّ احْفَظْهَا وَبَارِكْ لَهَا</div>
+                <p class="dua-text">
+                    یا اللہ! میری امی کو صحت و تندرستی والی لمبی زندگی عطا فرمائیں۔ آپ کا سایہ ہمیشہ میرے سر پر سلامت رہے اور اللہ آپ کو ہر دکھ اور بیماری سے دور رکھے۔
+                </p>
+            </div>
+
+            <div class="family-card" style="animation-delay: 0.2s; border: 2px solid #ddd;">
+                <div class="family-icon">👴</div>
+                <h3 class="family-title">میرے مرحوم والد</h3>
+                <div class="arabic-dua">رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+                <p class="dua-text">
+                    یا اللہ! میرے ابو کی مغفرت فرمائیں، آپ کی قبر کو نور سے بھر دیں اور آپ کو جنت الفردوس میں اعلیٰ مقام عطا فرمائیں۔ آپ کی محنتوں کو قبول فرمائیں۔
+                </p>
+            </div>
+
+            <div class="family-card" style="animation-delay: 0.3s;">
+                <div class="family-icon">💍</div>
+                <h3 class="family-title">مستقبل کی شریکِ حیات</h3>
+                <div class="arabic-dua">اللّٰهُمَّ بَارِكْ لِي فِيهَا</div>
+                <p class="dua-text">
+                    یا اللہ! مجھے ایسی شریکِ حیات عطا فرمائیں جو میرے دل کا سکون بنے۔ اللہ آپ کو میرے گھر کی زینت بنائے اور آپ میری بہترین رفیقِ حیات ثابت ہوں۔
+                </p>
+            </div>
+
+            <div class="family-card" style="animation-delay: 0.4s;">
+                <div class="family-icon">👦</div>
+                <h3 class="family-title">عزیز بھائی</h3>
+                <div class="arabic-dua">اللّٰهُمَّ وَفِّقْهُ وَسَدِّدْهُ</div>
+                <p class="dua-text">
+                    یا اللہ! میرے بھائی کو ہر نیک مقصد میں کامیابی عطا فرمائیں۔ آپ کو برے وقت سے بچائیں اور آپ ہمیشہ ہمارے خاندان کا فخر بنے رہیں۔
+                </p>
+            </div>
+
+            <div class="family-card" style="animation-delay: 0.5s;">
+                <div class="family-icon">👶</div>
+                <h3 class="family-title">میرا بھتیجا</h3>
+                <div class="arabic-dua">اللّٰهُمَّ بَارِكْ لَهُ وَعَافِهِ</div>
+                <p class="dua-text">
+                    یا اللہ! میرے بھتیجے کو نیک اور صالح بنائیں۔ آپ بڑے ہو کر ایک کامیاب اور باعزت انسان بنیں اور اللہ آپ کو دونوں جہان کی بھلائی دے۔
+                </p>
+            </div>
+
+            <div class="family-card" style="animation-delay: 0.6s;">
+                <div class="family-icon">👧</div>
+                <h3 class="family-title">میری بھتیجی</h3>
+                <div class="arabic-dua">اللّٰهُمَّ احْفَظْهَا وَبَارِكْ لَهَا</div>
+                <p class="dua-text">
+                    یا اللہ! میری بھتیجی کو نیک سیرت اور پاکیزہ صفت بنائیں۔ آپ کا مستقبل روشن ہو اور اللہ آپ کو ہر قسم کی آفت سے محفوظ رکھے۔
+                </p>
+            </div>
+        </div>
+
+        <div class="special-section">
+            <h2 class="special-title">🌟 پورے خاندان کے لیے جامع دعا</h2>
+            <div class="arabic-dua">
+                رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي ۚ رَبَّنَا وَتَقَبَّلْ دُعَاءِ
+            </div>
+            <p class="dua-text">
+                یا اللہ! ہمارے گھرانے پر اپنی رحمتوں کا نزول فرما۔ میرے ابو کے درجات بلند فرما اور میری امی کو صحت کے ساتھ سلامت رکھ۔ ہمیں ہر حسد اور بیماری سے محفوظ رکھ۔
+            </p>
+            <button class="ameen-btn" onclick="playAnimation()">
+                <span>🤲</span>
+                <span>آمین ثم آمین</span>
+            </button>
+        </div>
+
+        <div class="gratitude-section">
+            <h2 class="special-title">🙏 شکر گزاری</h2>
+            <div class="gratitude-grid">
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">👩</div>
+                    <h3 class="gratitude-title">امی کا شکریہ</h3>
+                    <p class="gratitude-text">آپ کی بے لوث محبت اور دعاؤں کا شکریہ۔ آپ کے بغیر میری زندگی کا کوئی رنگ نہیں۔</p>
+                </div>
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">👨</div>
+                    <h3 class="gratitude-title">ابو کا شکریہ</h3>
+                    <p class="gratitude-text">آپ کی محنت اور سائے کا شکریہ۔ آپ نے ہمیشہ ہماری خوشیوں کے لیے قربانی دی۔</p>
+                </div>
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">👦</div>
+                    <h3 class="gratitude-title">بھائی کا شکریہ</h3>
+                    <p class="gratitude-text">آپ کی دوستی اور مضبوط سہارے کا شکریہ۔ آپ میرے لیے بہت بڑی طاقت ہیں۔</p>
+                </div>
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">💍</div>
+                    <h3 class="gratitude-title">جیون ساتھی</h3>
+                    <p class="gratitude-text">مستقبل کی ساتھی کا شکریہ جو آ کر میرے گھر کو مکمل کریں گی اور میرا ساتھ دیں گی۔</p>
+                </div>
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">👶</div>
+                    <h3 class="gratitude-title">بھتیجے کا شکریہ</h3>
+                    <p class="gratitude-text">آپ کی شرارتوں اور معصومیت کا شکریہ جو گھر کے ماحول کو خوشگوار رکھتی ہیں۔</p>
+                </div>
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">👧</div>
+                    <h3 class="gratitude-title">بھتیجی کا شکریہ</h3>
+                    <p class="gratitude-text">آپ کی پیاری باتوں اور ہنسی کا شکریہ۔ آپ ہمارے آنگن کا خوبصورت پھول ہیں۔</p>
+                </div>
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">💭</div>
+                    <h3 class="gratitude-title">بہن کا احساس</h3>
+                    <p class="gratitude-text">کاش زندگی میں ایک بہن کا پیار بھی ہوتا، اس خوبصورت رشتے کی کمی ہمیشہ محسوس ہوتی رہے گی۔</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wishes-section">
+            <h2 class="special-title">🌟 دل کی آرزوئیں</h2>
+            <div class="wishes-container">
+                <div class="wish-box">
+                    <div class="wish-person">👩 امی کے لیے</div>
+                    <p class="wish-content">آپ کو حج و عمرہ کی سعادت نصیب ہو، آپ کی ہر دلی تمنا پوری ہو اور آپ ہمیشہ مسکراتی رہیں۔</p>
+                </div>
+                <div class="wish-box">
+                    <div class="wish-person">👨 ابو کے لیے</div>
+                    <p class="wish-content">اللہ آپ کو جنت میں اعلیٰ مقام دے، آپ کی قبر کو جنت کا باغ بنائے اور آپ پر کروڑوں رحمتیں ہوں۔</p>
+                </div>
+                <div class="wish-box">
+                    <div class="wish-person">👦 بھائی کے لیے</div>
+                    <p class="wish-content">آپ کو دنیا کی ہر کامیابی ملے، آپ کا کیریئر شاندار ہو اور اللہ آپ کو ایک نیک بیوی عطا فرمائے۔</p>
+                </div>
+                <div class="wish-box">
+                    <div class="wish-person">💍 شریکِ حیات کے لیے</div>
+                    <p class="wish-content">اللہ آپ کو میری زندگی کا سکون بنائے اور ہمارا رشتہ محبت اور احترام کی لازوال مثال ہو۔</p>
+                </div>
+                <div class="wish-box">
+                    <div class="wish-person">👶 بھتیجے کے لیے</div>
+                    <p class="wish-content">آپ بڑے ہو کر خاندان کا فخر بنیں، اللہ آپ کو ذہانت اور بہترین اخلاق سے نوازے۔</p>
+                </div>
+                <div class="wish-box">
+                    <div class="wish-person">👧 بھتیجی کے لیے</div>
+                    <p class="wish-content">اللہ آپ کے نصیب بہترین کرے، آپ کو اعلیٰ تعلیم ملے اور آپ ہمیشہ خوش و خرم رہیں۔</p>
+                </div>
+                <div class="wish-box">
+                    <div class="wish-person">🌹 بہن کے لیے تمنا</div>
+                    <p class="wish-content">اگرچہ میری بہن نہیں ہے، پر دعا ہے کہ اللہ پاک میرے بھائی کی بیٹی کو وہ مقام دے اور اسے بہن جیسا پیار نصیب ہو۔</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="promise-section">
+            <h2 class="special-title">💖 میرا وعدہ</h2>
+            <div class="promise-container">
+                <div class="promise-box">
+                    <p class="promise-text">
+                        میں وعدہ کرتا ہوں کہ میں اپنے خاندان کی عزت اور خوشیوں کا محافظ بنوں گا۔ میں امی کی خدمت، بھائی کا ساتھ اور اپنے پیارے بچوں (بھتیجا/بھتیجی) کی بہتر تربیت میں کبھی کوئی کسر نہیں چھوڑوں گا۔ ان شاء اللہ
+                    </p>
+                    <p class="promise-signature" style="color: #ff0000; font-weight: bold;">💝 آپ کی دعاؤں کا طالب 💝</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-message">
+            <p class="footer-text">💚 میرے پیارے خاندان، اللہ آپ سب کو ہمیشہ سلامت رکھے 💚</p>
+        </div>
+    </div>
+ 
+ 
+    </head>
+</body>  
+  
